@@ -1,86 +1,25 @@
 ''' Euler 01 '''
+# Por PA e PG
 
-p0 = []
-p1 = []
-p2 = []
-
-
-# def uso(valor):
-#     if valor % 3 == 0 or valor % 5 == 0:
-#         return valor
-#     return 0
+# https://medium.com/@TheZaki/project-euler-1-multiples-of-3-and-5-c24cb64071b0
 
 
-# for n in [12]:
-#     soma = 0
-#     print('n =', n)
-#     print('n/2 =', n/2)
-#     if n == 0:
-#         pass
-#     else:
-#         for item in range(int(n//2)):
-#             p0.append(item)
-#             p0.append(int(n/2+item))
-
-#             soma += uso(item)
-#             p1.append(item)
-
-#             soma += uso(n//2+item)
-#             p2.append(int(n/2+item))
-
-#     if n % 2 != 0:
-#         soma += uso(n)
-#         p2.append(n)
-
-#     print(soma)
-
-# print("p0:", p0, len(p0))
-# print("p1:", p1)
-# print("p2:", p2)
-
-def uso(valor):
-    if valor % 3 == 0 or valor % 5 == 0:
-        return valor
-    return 0
+def soma(n, k):
+    d = n // k
+    return k * (d * (d+1)) // 2
 
 
-for n in [-1, 10, 100, 10000]:
-    soma = 0
-    if n == 0:
-        pass
-    else:
-        for item in range(int(n//2)):
-            soma += uso(item)
-            soma += uso(n//2+item)
-    
-    if n % 2 != 0:
-        soma += uso(n)
-    print(soma)
+def euler1(n):
+    return soma(n, 3) + soma(n, 5) - soma(n, 15)
 
 
+t1 = [100, 1000, 10000, 100000, 1000000, 10000000, 100000000, 1000000002, 1000000005]
+# t1 = [2, 10, 100, 105, 1000000000]
+for n in t1:
+    # n = int(input().strip())
+    print(euler1(n - 1))
 
-
-# for n in [0,10,100,1000]:
-#     soma = 0
-#     if n == 0:
-#         pass
-#     else:
-#         for item in range((n)):
-#             if item % 3 == 0 or item % 5 == 0:
-#                 soma += item
-#         print(soma)
-
-
-# print('*'*80)
-# for n in [10,100]:
-#     soma = 0
-#     if n == 0:
-#         pass
-#     else:
-#         for item in range(0, n, 3):
-#             if item % 5 != 0:
-#                 soma += item
-#         for item in range(0, n, 5):
-#             soma += item
-#     print(soma)
-
+# t = int(input().strip())
+# for a0 in range(t):
+#     n = int(input().strip())
+#     print(euler1(n - 1))
